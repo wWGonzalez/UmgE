@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h2>Estudiante Administrador</h2>
+
+<h3 align="left">
+<form method="POST">
+ {% csrf_token %}
+Nombre <br>
+{{ form.nombre }}
+<br>
+Direccion <br>
+{{ form.direccion }}
+<br>
+Carné <br>
+ {{ form.carne }}
+ <br><br>
+<button type="submit" class="btn btn-primary" value="Submit">Agregar</button>
+
+</h3>
+</form>
+
+<A HREF="{% url 'App1:EstudianteListAdmin' %}">Ver Estudiantes administradores</A>
+
+<h3>
+{% block tablaAdmin %} {% endblock %}
+</h3>
+
+{% endblock %}
+

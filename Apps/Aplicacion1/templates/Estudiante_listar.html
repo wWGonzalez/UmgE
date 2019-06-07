@@ -1,0 +1,48 @@
+{% extends 'crearEstudiante.html' %}
+
+{% block tablaEstudiante %}
+<html>
+
+</h2>
+
+<div>
+	<table class="table table-striped table-hover">
+		<tr class="info success">
+			<td>Nombre</td>
+			<td>Carne</td>
+			<td>Direccion</td>
+			<td>Accion</td>
+			<td>Accion 2</td>
+		</tr>
+
+		{% if estudiantes %}
+				{% for est in estudiantes %}
+
+		<tr class="active">
+			<td>{{est.nombre}}</td>
+			<td>{{est.direccion}}</td>
+			<td>{{est.carne}}</td>
+	
+			<td><a href="{% url 'App1:EditarEstudiante' est.id %}">Editar</a></td>
+			<td><a href="{% url 'App1:DeleteEstudiante' est.id %}">Eliminar</a>
+			</td>
+			
+		</tr>
+				{% endfor %}
+		{% else %}
+		<h2>No hay Registros</h2>
+		{% endif %}
+
+	</table>
+
+</div>
+
+
+<A HREF="{% url 'App1:addEstudiante' %}" class="btn btn-default">Agregar un Nuevo estudiante</A>
+
+
+</table>
+</h2>
+
+</html>
+{% endblock %}

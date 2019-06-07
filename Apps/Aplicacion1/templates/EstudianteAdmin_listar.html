@@ -1,0 +1,34 @@
+{% extends 'crearEstudianteAdmin.html' %}
+
+{% block tablaAdmin %}
+
+	<html>
+		<h1>Tabla Estudiantes Administradores</h1>
+
+	<div>
+	
+	<table class="table table-striped table-hover">
+		<tr class="info">
+			<td>Nombre<td>Carne<td>Direccion<td>Accion1<td>Accion2</td>
+		</tr class="success">
+
+
+		{% for est in obj %}
+
+		<tr class="active">
+			<td>{{est.nombre}}
+			<td>{{est.direccion}}
+			<td>{{est.carne}}
+			<td><a href="{% url 'App1:EditarEstudianteAdmin' est.id %}" >Editar</a>
+			<td><a href="{% url 'App1:DeleteAdmin' est.id %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+</div>
+
+<A HREF="{% url 'App1:AddEstudianteAdmin' %}" class="btn btn-default">Agregar un Nuevo estudiante</A>
+
+</html>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'Articulo.html' %}
+
+{% block ListarArticulo %}
+
+<h1>Lista de Articulos</h1>
+<table class="table table-striped table-hover">
+	<thead>
+		<tr class="info success"> 
+			<td>Titlulo</td>
+			<td>Articulo</td>
+			<td>Fecha</td>
+			<td>Estudiante</td>
+			<td>Estudiante Administrador</td>
+			<td>Accion1</td>
+			<td>Accion2</td>
+
+		</tr>
+	</thead>
+
+	<tbody class="active">
+			{% if articulos %}
+			{% for articulo in articulos %}
+			<tr>
+				<td>{{ articulo.titulo }}</td>
+				<td>{{ articulo.articulo }}</td>
+				<td>{{ articulo.fecha }}</td>
+				<td>{{ articulo.estudiante }}</td>
+				<td>{{ articulo.estudianteAdmin }}</td>
+				<td><a href="{% url 'App1:EditarArticulo' articulo.id %}">Editar</a></td>
+				<td><a href="{% url 'App1:DeleteArticulo' articulo.id %}">Eliminar</a></td>
+			</tr>
+			{% endfor %}
+			{% else %}
+			<h2>No hay registros </h2>
+			{% endif %}
+	</tbody>
+</table>
+<a href ="{% url 'App1:Articulo' %}" class="btn btn-primary"> Agregar Articulo </a>
+
+{% endblock %}

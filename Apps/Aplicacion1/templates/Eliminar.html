@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<form method="post">
+	{% csrf_token %}
+	<h3>¿Desea Eliminar el registro {{ object.nombre }} {{ object.titulo}}?</h3>
+	<button class="btn btn-danger" type="submit"> Sí, Eliminar</button>
+	<A  class="btn btn-default" HREF="{% url 'App1:EstudianteList' %}" onclick="clicked()">Cancelar</A>
+<h3>
+</h3>
+</form>
+
+{% endblock %}

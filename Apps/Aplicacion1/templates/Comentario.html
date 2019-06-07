@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h3 align="left" style="color:">
+<form method="POST">
+ {% csrf_token %}
+Contenido Comentario<br>
+{{ form.comentario }}
+<br>
+Fecha <br>
+{{ form.fecha }}
+<br>
+ Estudiante <br>
+{{ form.estudiante }}
+<br>
+Articulo <br>
+{{ form.articulo }}
+ <br><br>
+<button type="submit" value="Submit" class="btn btn-primary">Guardar</button>
+
+</h3>
+</form>
+
+
+{% endblock %}

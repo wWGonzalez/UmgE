@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<h3 align="center"">
+<form method="POST">
+ {% csrf_token %}
+
+User <br>
+{{ form.username }}
+<br>
+Password <br>
+{{ form.password }}
+ <br><br>
+
+<button type="submit" value="Submit" class="btn btn-primary" >Ingresar</button>
+
+</h3>
+</form>
+
+
+{% endblock %}
